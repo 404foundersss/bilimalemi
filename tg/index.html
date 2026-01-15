@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Репетиторы Казахстана</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Заголовок -->
+        <div class="header">
+            <h1>?? Репетиторы Казахстана</h1>
+            <p>Найди лучшего преподавателя для себя</p>
+            <div class="ai-badge" id="aiAssistantBtn">
+                <span>??</span>
+                <span style="margin-left: 8px; font-size: 14px;">AI Помощник</span>
+            </div>
+        </div>
+
+        <!-- Поиск -->
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Имя преподавателя или предмет...">
+            <span class="search-icon">??</span>
+        </div>
+
+        <!-- Фильтры -->
+        <div class="filters">
+            <button class="filter-btn active" data-subject="all">Все</button>
+            <button class="filter-btn" data-subject="Математика">Математика</button>
+            <button class="filter-btn" data-subject="Физика">Физика</button>
+            <button class="filter-btn" data-subject="Английский">Английский</button>
+            <button class="filter-btn" data-subject="Химия">Химия</button>
+        </div>
+
+        <!-- Список репетиторов -->
+        <div class="tutors-grid" id="tutorList"></div>
+
+        <!-- Пустое состояние -->
+        <div class="hidden" id="emptyState" style="text-align: center; padding: 50px 20px; color: white;">
+            <div style="font-size: 64px; margin-bottom: 20px;">??</div>
+            <h3 style="margin-bottom: 10px; font-size: 22px;">Ничего не найдено</h3>
+            <p style="opacity: 0.9; font-size: 15px;">Попробуйте изменить поисковый запрос</p>
+        </div>
+    </div>
+
+    <!-- Модалка преподавателя -->
+    <div id="tutorModal" class="modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle"></h2>
+                <button class="close-btn" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body-scroll" id="modalBody"></div>
+            <button class="action-btn full-width" id="contactTutorBtn">
+                ?? Записаться на занятие
+            </button>
+        </div>
+    </div>
+
+    <!-- AI Чат -->
+    <div id="aiModal" class="modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>?? AI Помощник</h2>
+                <button class="close-btn" id="closeAiModal">&times;</button>
+            </div>
+            <div class="ai-chat" id="aiChat">
+                <div class="ai-message assistant">
+                    Привет! ?? Я помогу тебе выбрать идеального репетитора. Расскажи, какой предмет тебя интересует или задай любой вопрос!
+                </div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" id="aiInput" placeholder="Напиши сообщение...">
+                <button class="send-btn" id="aiSendBtn">?</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
